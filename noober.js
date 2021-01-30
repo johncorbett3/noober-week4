@@ -32,11 +32,18 @@ async function pageLoaded() {
       let passengerDropoff1 = ride[i].dropoffLocation.address
       let passengerDropoff2 = `${ride[i].dropoffLocation.city}, ${ride[i].dropoffLocation.state} ${ride[i].dropoffLocation.zip}`
 
-      <div class="text-center text-2xl">
+      
       document.write(`
-        ${[passengerName]} ${[passengerPhone]}
-      )
+      <div class="p-4 w-full md:w-1/2 lg:w-1/3">
+      <div class="border h-full p-4 flex flex-col">
+        <h2 class="text-lg font-bold mb-4">${passengerName}</h2>
+        <div class="mb-4 text-gray-900">${passengerPhone}
         </div>
+        <div class="mt-auto text-purple-500 text-2xl">$${passengerPickup1}</div>
+      </div>
+    </div>
+      `)
+        
 
 
       // console.log(passengerName)
