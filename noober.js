@@ -1,5 +1,10 @@
-
-
+function appendQuote(string) {
+  document.querySelector('.rides').insertAdjacentHTML('beforeend', `
+    <h1 class="font-bold my-8 text-xl text-blue-300">${string}</h1>
+  `)
+  // determine what to put in parentheses for querySelector to get insertAdjacentHTML to work
+  // https://stackoverflow.com/questions/59339313/uncaught-typeerror-cannot-read-property-insertadjacenthtml-of-null#:~:text=Your%20error%20literally%20means%20that,querySelector(element).
+}
 
 
 async function pageLoaded() {
@@ -32,29 +37,41 @@ async function pageLoaded() {
       let passengerDropoff1 = ride[i].dropoffLocation.address
       let passengerDropoff2 = `${ride[i].dropoffLocation.city}, ${ride[i].dropoffLocation.state} ${ride[i].dropoffLocation.zip}`
 
+      appendQuote(ride[i])
+
+      // let passengerCount = `${ride.numberOfPassengers}`
       
-      document.write(`
-      <div class="p-4 w-full md:w-1/2 lg:w-1/3">
-      <div class="border h-full p-4 flex flex-col">
-        <h2 class="text-lg font-bold mb-4">${passengerName}</h2>
-        <div class="mb-4 text-gray-900">${passengerPhone}
-        </div>
-        <div class="mt-auto text-purple-500 text-2xl">$${passengerPickup1}</div>
-      </div>
-    </div>
-      `)
-        
+      
+      // document.write(`
+      // <div class="border-4 border-gray-900 p-4 my-4 text-left">
+      // <div class="flex">
+      //   <div class="w-1/2">
+      //     <h2 class="text-2xl py-1">${passengerName}</h2>
+      //     <p class="font-bold text-gray-600">(312) 555-1212</p>
+      //   </div>
+      //   <div class="w-1/2 text-right">
+      //     <span class="rounded-xl bg-gray-600 text-white p-2">
+      //       ${passengerCount}
+      //     </span>
+      //   </div>
+      // </div>
+      // <div class="mt-4 flex">
+      //   <div class="w-1/2">
+      //     <div class="text-sm font-bold text-gray-600">PICKUP</div>
+      //     <p>${passengerPickup1}</p>
+      //     <p>${passengerPickup2}</p>
+      //   </div>
+      //   <div class="w-1/2">
+      //     <div class="text-sm font-bold text-gray-600">DROPOFF</div>
+      //     <p>${passengerDropoff1}</p>
+      //     <p>${passengerDropoff2}</p>
+      //   </div>
+      // </div>
+      // `)
+      
 
 
-      // console.log(passengerName)
-      // console.log(passengerPhone)
-      // console.log(passengerPickup1)
-      // console.log(passengerPickup2)
-      // console.log(passengerDropoff1)
-      // console.log(passengerDropoff2)
-           
-        
-        // console.log(ride[i].passengerDetails.first)
+
         // put in the function(ride) to add it to the HTML output
       } 
     }
